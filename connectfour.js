@@ -1,14 +1,17 @@
-var first_row  = ['o','o','o','o','o','o','o'];
-var second_row = ['o','o','o','o','o','o','o'];
-var third_row  = ['o','o','o','o','o','o','o'];
-var fourth_row = ['o','o','o','o','o','o','o'];
-var fifth_row  = ['o','o','o','o','o','o','o'];
-var sixth_row  = ['o','o','o','o','o','o','o'];
+var first_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
+var second_row = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
+var third_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
+var fourth_row = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
+var fifth_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
+var sixth_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
+
 var counter = 0;
 var player = ['*','#'];
 var check_column = []
-var winning_p1 = "*,*,*,*"
-var winning_p2 = "#,#,#,#"
+
+var winning_p1 = "<span>*</span>,<span>*</span>,<span>*</span>,<span>*</span>"
+var winning_p2 = "<span>#</span>,<span>#</span>,<span>#</span>,<span>#</span>"
+
 var all_row = [first_row, second_row, third_row, fourth_row, fifth_row, sixth_row];
 
 function countClicks()
@@ -88,25 +91,26 @@ function checker_row()
 
 function column(num)
 {
-  if (sixth_row[num] == 'o'){
-    sixth_row[num] = player[counter % 2];
+  if (sixth_row[num] == '<span>o</span>'){
+    sixth_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row6').innerHTML = sixth_row;
-  } else if (fifth_row[num] =='o'){
-    fifth_row[num] = player[counter % 2];
+  } else if (fifth_row[num] =='<span>o</span>'){
+    fifth_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row5').innerHTML = fifth_row;
-  } else if (fourth_row[num] =='o'){
-    fourth_row[num] = player[counter % 2];
+  } else if (fourth_row[num] =='<span>o</span>'){
+    fourth_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row4').innerHTML = fourth_row;
-  } else if (third_row[num] =='o'){
-    third_row[num] = player[counter % 2];
+  } else if (third_row[num] =='<span>o</span>'){
+    third_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row3').innerHTML = third_row;
-  } else if (second_row[num] =='o'){
-    second_row[num] = player[counter % 2];
+  } else if (second_row[num] =='<span>o</span>'){
+    second_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row2').innerHTML = second_row;
-  } else if (first_row[num] == '*' || first_row[num] == '#'){
+  } else if (first_row[num] == '<span>*</span>' || first_row[num] ==
+'<span>#</span>'){
     counter = counter - 1;
   } else {
-    first_row[num] = player[counter % 2];
+    first_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row1').innerHTML = first_row;
   }
 }

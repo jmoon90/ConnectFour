@@ -3,20 +3,15 @@
     <link rel="stylesheet" href="connectfour.css" type="text/css" />
   </head>
   <body>
-    <button onclick="column(0); countClicks(); checker_row(0);
-checker_column(0); check_diagonal()">Column 1</button>
-    <button onclick="column(1); countClicks(); checker_row(1);
-checker_column(1); check_diagonal()">Column 2</button>
-    <button onclick="column(2); countClicks(); checker_row(2);
-checker_column(2); check_diagonal()">Column 3</button>
-    <button onclick="column(3); countClicks(); checker_row(3);
-checker_column(3); check_diagonal()">Column 4</button>
-    <button onclick="column(4); countClicks(); checker_row(4);
-checker_column(4); check_diagonal()">Column 5</button>
-    <button onclick="column(5); countClicks(); checker_row(5);
-checker_column(5); check_diagonal()">Column 6</button>
-    <button onclick="column(6); countClicks(); checker_row(6);
-checker_column(6); check_diagonal()">Column 7</button>
+    <h3>Player 1  * </h3>
+    <h3>Player 2  # </h3>
+    <button id="button1" onclick="column(0); countClicks(); checker_row(0); checker_column(0); check_diagonal(); computer()">Column 1</button>
+    <button id="button2" onclick="column(1); countClicks(); checker_row(1); checker_column(1); check_diagonal(); computer()">Column 2</button>
+    <button id="button3" onclick="column(2); countClicks(); checker_row(2); checker_column(2); check_diagonal(); computer()">Column 3</button>
+    <button id="button4" onclick="column(3); countClicks(); checker_row(3); checker_column(3); check_diagonal(); computer()">Column 4</button>
+    <button id="button5" onclick="column(4); countClicks(); checker_row(4); checker_column(4); check_diagonal(); computer()">Column 5</button>
+    <button id="button6" onclick="column(5); countClicks(); checker_row(5); checker_column(5); check_diagonal(); computer()">Column 6</button>
+    <button id="button7" onclick="column(6); countClicks(); checker_row(6); checker_column(6); check_diagonal(); computer()">Column 7</button>
     <h1 id="row1"></h1>
     <h1 id="row2"></h1>
     <h1 id="row3"></h1>

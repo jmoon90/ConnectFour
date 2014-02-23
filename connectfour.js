@@ -14,6 +14,16 @@ var winning_p2 = "<span>#</span>,<span>#</span>,<span>#</span>,<span>#</span>"
 
 var all_row = [first_row, second_row, third_row, fourth_row, fifth_row, sixth_row];
 
+var fifty_fifty =
+["http://static2.wikia.nocookie.net/__cb20120124020744/creepypasta/images/2/23/Scary_05.gif",
+"http://i.imgur.com/pinQSgA.gif",
+"http://who-is-awesome.com/who-is-awesome.jpg",
+"http://big.assets.huffingtonpost.com/0220sorry570.gif",
+"http://i.imgur.com/mP2zdqT.jpg",
+"http://i.imgur.com/zwx38LL.jpg"];
+var fifty_choice = fifty_fifty[Math.floor(Math.random() *
+fifty_fifty.length)];
+
 function countClicks()
 {
   counter++;
@@ -41,10 +51,12 @@ function check_diagonal()
       if (check_diagonally_right.toString() == winning_p1 ||
           check_diagonally_right.toString() == winning_p2) 
       {
-        if (confirm(check_diagonally_left[0] + " Wins! Play again?"))
-        {
-          return location.reload();
-        }
+        if (confirm(check_row[0] + " Wins! Play 50/50 and again?"))
+          {
+
+            window.open(fifty_choice);
+            location.reload();
+          }
       }
     }
     i++;
@@ -60,9 +72,10 @@ function checker_column(num)
 + 2][num],all_row[i + 3][num]];
       if(check_column.toString() == winning_p1 || check_column.toString() == winning_p2)
         {
-          if(confirm(check_column[0] + " Wins! Play again?"))
+          if (confirm(check_row[0] + " Wins! Play 50/50 and again?"))
           {
-            return location.reload();
+            window.open(fifty_choice);
+            location.reload();
           }
         }
     i++;
@@ -79,8 +92,9 @@ function checker_row()
     var check_row = all_row[n].slice(i, 4+i);
     if (check_row.toString() == winning_p1 || check_row.toString() == winning_p2)
       {
-        if (confirm(check_row[0] + " Wins! Play again?"))
+        if (confirm(check_row[0] + " Wins! Play 50/50 and again?"))
         {
+          window.open(fifty_choice);
           location.reload();
         }
       }
@@ -106,8 +120,7 @@ function column(num)
   } else if (second_row[num] =='<span>o</span>'){
     second_row[num] = '<span>' +player[counter % 2]+ '</span>';
     document.getElementById('row2').innerHTML = second_row;
-  } else if (first_row[num] == '<span>*</span>' || first_row[num] ==
-'<span>#</span>'){
+  } else if (first_row[num] == '<span>*</span>' || first_row[num] == '<span>#</span>'){
     counter = counter - 1;
   } else {
     first_row[num] = '<span>' +player[counter % 2]+ '</span>';

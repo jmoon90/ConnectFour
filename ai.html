@@ -1,0 +1,70 @@
+function computer()
+{
+  if(counter % 2 == 1)
+  {
+          i = 0
+    while (i < 4)
+    {
+     for (n = 0; n < all_row.length; n++)
+      {
+        var check_row = all_row[n];
+        if(check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 0) {
+          return document.getElementById('button4').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 15) {
+          return document.getElementById('button5').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 30) {
+          return document.getElementById('button6').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 45) {
+          return document.getElementById('button7').click();
+        }
+        if(check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 0) {
+          return document.getElementById('button3').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 15) {
+          return document.getElementById('button4').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 15) {
+          return document.getElementById('button2').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 30) {
+          return document.getElementById('button5').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 30) {
+          return document.getElementById('button3').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 45) {
+          return document.getElementById('button4').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 45) {
+          return document.getElementById('button6').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 60) {
+          return document.getElementById('button5').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 60) {
+          return document.getElementById('button7').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 60) {
+          return document.getElementById('button5').click();
+        }
+        if(check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 0) {
+          return document.getElementById('button2').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>o</span>") == 0) {
+          return document.getElementById('button3').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 15) {
+          return document.getElementById('button3').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 15) {
+          return document.getElementById('button2').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 30) {
+          return document.getElementById('button3').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 30) {
+          return document.getElementById('button4').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 45) {
+          return document.getElementById('button4').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 45) {
+          return document.getElementById('button5').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>o</span>") == 60) {
+          return document.getElementById('button5').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 60) {
+          return document.getElementById('button6').click();
+        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 75) {
+          return document.getElementById('button7').click();
+        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 75) {
+          return document.getElementById('button6').click();
+        }
+      }
+      i++;
+    }
+  }
+}

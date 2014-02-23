@@ -8,10 +8,11 @@ var sixth_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</s
 
 var counter = 0;
 var player = ['*','#'];
+var player_color = ['player', 'computer'];
 var check_column = []
 
-var winning_p1 = "*,*,*,*"
-var winning_p2 = "#,#,#,#"
+var winning_p1 = '<span class="player">*</span>,<span class="player">*</span>,<span class="player">*</span>,<span class="player">*</span>'
+var winning_p2 = '<span class="computer">#</span>,<span class="computer">#</span>,<span class="computer">#</span>,<span class="computer">#</span>'
 
 var all_row = [first_row, second_row, third_row, fourth_row, fifth_row, sixth_row];
 
@@ -20,76 +21,6 @@ var fifty_fifty =
 var fifty_choice = fifty_fifty[Math.floor(Math.random() *
 fifty_fifty.length)];
 
-function computer()
-{
-  if(counter % 2 == 1)
-  {
-          i = 0
-    while (i < 4)
-    {
-     for (n = 0; n < all_row.length; n++)
-      {
-        var check_row = all_row[n];
-        if(check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 0) {
-          return document.getElementById('button4').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 15) {
-          return document.getElementById('button5').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 30) {
-          return document.getElementById('button6').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>*</span>,<span>o</span>") == 45) {
-          return document.getElementById('button7').click();
-        }
-        if(check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 0) {
-          return document.getElementById('button3').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 15) {
-          return document.getElementById('button4').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 15) {
-          return document.getElementById('button2').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 30) {
-          return document.getElementById('button5').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 30) {
-          return document.getElementById('button3').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 45) {
-          return document.getElementById('button4').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 45) {
-          return document.getElementById('button6').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 60) {
-          return document.getElementById('button5').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>*</span>,<span>o</span>") == 60) {
-          return document.getElementById('button7').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>*</span>") == 60) {
-          return document.getElementById('button5').click();
-        }
-        if(check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 0) {
-          return document.getElementById('button2').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>,<span>o</span>") == 0) {
-          return document.getElementById('button3').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 15) {
-          return document.getElementById('button3').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 15) {
-          return document.getElementById('button2').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 30) {
-          return document.getElementById('button3').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 30) {
-          return document.getElementById('button4').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 45) {
-          return document.getElementById('button4').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 45) {
-          return document.getElementById('button5').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>o</span>") == 60) {
-          return document.getElementById('button5').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 60) {
-          return document.getElementById('button6').click();
-        } else if (check_row.toString().indexOf("<span>*</span>,<span>o</span>") == 75) {
-          return document.getElementById('button7').click();
-        } else if (check_row.toString().indexOf("<span>o</span>,<span>*</span>") == 75) {
-          return document.getElementById('button6').click();
-        }
-      }
-      i++;
-    }
-  }
-}
 
 function countClicks()
 {
@@ -113,7 +44,7 @@ function check_diagonal()
           if (confirm("Player 1 Wins! Play 50/50 and again?"))
           {
             window.open(fifty_choice);
-            location.reload();
+            return location.reload();
           }
        }
 
@@ -123,7 +54,7 @@ function check_diagonal()
           if (confirm("Player 2  Wins! Play 50/50 and again?"))
           {
             window.open(fifty_choice);
-            location.reload();
+            return location.reload();
           }
        }
     }
@@ -143,7 +74,7 @@ function checker_column(num)
           if (confirm("Player 1 Wins! Play 50/50 and again?"))
           {
             window.open(fifty_choice);
-            location.reload();
+            return location.reload();
           }
         }
 
@@ -152,7 +83,7 @@ function checker_column(num)
           if (confirm("Player 2  Wins! Play 50/50 and again?"))
           {
             window.open(fifty_choice);
-            location.reload();
+            return location.reload();
           }
         }
     i++;
@@ -172,7 +103,7 @@ function checker_row()
           if (confirm("Player 1 Wins! Play 50/50 and again?"))
           {
             window.open(fifty_choice);
-            location.reload();
+            return location.reload();
           }
         }
 
@@ -181,7 +112,7 @@ function checker_row()
           if (confirm("Player 2  Wins! Play 50/50 and again?"))
           {
             window.open(fifty_choice);
-            location.reload();
+            return location.reload();
           }
         }
     }
@@ -192,32 +123,32 @@ function checker_row()
 function column(num)
 {
   if (sixth_row[num] == '<span>o</span>'){
-    sixth_row[num] = '<span>' +player[counter % 2]+ '</span>';
+    sixth_row[num] = '<span class="' +player_color[counter % 2]+ '">' + player[counter % 2]+ '</span>';
     document.getElementById('row6').innerHTML = sixth_row;
   } else if (fifth_row[num] =='<span>o</span>'){
-    fifth_row[num] = '<span>' +player[counter % 2]+ '</span>';
+    fifth_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
     document.getElementById('row5').innerHTML = fifth_row;
   } else if (fourth_row[num] =='<span>o</span>'){
-    fourth_row[num] = '<span>' +player[counter % 2]+ '</span>';
+    fourth_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
     document.getElementById('row4').innerHTML = fourth_row;
   } else if (third_row[num] =='<span>o</span>'){
-    third_row[num] = '<span>' +player[counter % 2]+ '</span>';
+    third_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
     document.getElementById('row3').innerHTML = third_row;
   } else if (second_row[num] =='<span>o</span>'){
-    second_row[num] = '<span>' +player[counter % 2]+ '</span>';
+    second_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
     document.getElementById('row2').innerHTML = second_row;
   } else if (first_row[num] == '<span>*</span>' || first_row[num] ==
 '<span>#</span>'){
     counter = counter - 1;
   } else {
-    first_row[num] = '<span>' +player[counter % 2]+ '</span>';
+    first_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
     document.getElementById('row1').innerHTML = first_row;
   }
 }
 
 onload = function ()
 {
- document.getElementById("row1").innerHTML = first_row;
+  document.getElementById("row1").innerHTML = first_row;
   document.getElementById("row2").innerHTML = second_row;
   document.getElementById("row3").innerHTML = third_row;
   document.getElementById("row4").innerHTML = fourth_row;

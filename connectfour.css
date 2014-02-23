@@ -1,3 +1,11 @@
 span {
   margin: 0 27px;
 }
+
+.player {
+  color: red;
+}
+
+.computer {
+  color: blue;
+}

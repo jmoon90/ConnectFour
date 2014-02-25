@@ -5,23 +5,40 @@ var fourth_row = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</s
 var fifth_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
 var sixth_row  = ['<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>','<span>o</span>'];
 
-
 var counter = 0;
 var player = ['*','#'];
 var player_color = ['player', 'computer'];
 var check_column = []
 
+//Decides who won
 var winning_p1 = '<span class="player">*</span>,<span class="player">*</span>,<span class="player">*</span>,<span class="player">*</span>'
 var winning_p2 = '<span class="computer">#</span>,<span class="computer">#</span>,<span class="computer">#</span>,<span class="computer">#</span>'
 
+var if_player_1_wins = function() {
+  if (confirm("Player 1 Wins! Play 50/50 and again?"))
+  {
+    window.open(fifty_choice);
+    return location.reload();
+  }
+}
+
+var if_player_2_wins = function() {
+    if (confirm("Player 2  Wins! Play 50/50 and again?"))
+  {
+    window.open(fifty_choice);
+    return location.reload();
+  }
+}
+
 var all_row = [first_row, second_row, third_row, fourth_row, fifth_row, sixth_row];
 
+//Add pictures links to display randomly to players
 var fifty_fifty =
 ["http://big.assets.huffingtonpost.com/0220sorry570.gif"];
 var fifty_choice = fifty_fifty[Math.floor(Math.random() *
 fifty_fifty.length)];
 
-
+//How many times a chip was placed in the board
 function countClicks()
 {
   counter++;
@@ -41,21 +58,13 @@ function check_diagonal()
        if(check_diagonally_right.toString() == winning_p1 ||
          check_diagonally_left.toString() == winning_p1)
        {
-          if (confirm("Player 1 Wins! Play 50/50 and again?"))
-          {
-            window.open(fifty_choice);
-            return location.reload();
-          }
+         if_player_1_wins()
        }
 
        if(check_diagonally_right.toString() == winning_p2 ||
           check_diagonally_left.toString() == winning_p2)
        {
-          if (confirm("Player 2  Wins! Play 50/50 and again?"))
-          {
-            window.open(fifty_choice);
-            return location.reload();
-          }
+         if_player_2_wins()
        }
     }
     i++;
@@ -71,20 +80,12 @@ function checker_column(num)
                           all_row[i + 2][num],all_row[i + 3][num]];
       if(check_column.toString() == winning_p1)
         {
-          if (confirm("Player 1 Wins! Play 50/50 and again?"))
-          {
-            window.open(fifty_choice);
-            return location.reload();
-          }
+          if_player_1_wins()
         }
 
       if(check_column.toString() == winning_p2)
         {
-          if (confirm("Player 2  Wins! Play 50/50 and again?"))
-          {
-            window.open(fifty_choice);
-            return location.reload();
-          }
+          if_player_2_wins()
         }
     i++;
   }
@@ -100,20 +101,12 @@ function checker_row()
       var check_row = all_row[n].slice(i, 4+i);
       if(check_row.toString() == winning_p1)
         {
-          if (confirm("Player 1 Wins! Play 50/50 and again?"))
-          {
-            window.open(fifty_choice);
-            return location.reload();
-          }
+          if_player_1_wins()
         }
 
       if(check_row.toString() == winning_p2)
         {
-          if (confirm("Player 2  Wins! Play 50/50 and again?"))
-          {
-            window.open(fifty_choice);
-            return location.reload();
-          }
+          if_player_2_wins()
         }
     }
     i++;
@@ -137,8 +130,7 @@ function column(num)
   } else if (second_row[num] =='<span>o</span>'){
     second_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
     document.getElementById('row2').innerHTML = second_row;
-  } else if (first_row[num] == '<span>*</span>' || first_row[num] ==
-'<span>#</span>'){
+  } else if (first_row[num] == '<span class="player">*</span>' || first_row[num] == '<span class="computer">#</span>'){
     counter = counter - 1;
   } else {
     first_row[num] = '<span class="' +player_color[counter % 2]+ '">' +player[counter % 2]+ '</span>';
